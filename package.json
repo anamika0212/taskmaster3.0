@@ -1,0 +1,20 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "description": "Task Manager",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "test",
+    "type":"module"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anamika0212/taskmaster3.0.git"
+  },
+  "author": "Anamika jha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anamika0212/taskmaster3.0/issues"
+  },
+  "homepage": "https://github.com/anamika0212/taskmaster3.0#readme"
+}

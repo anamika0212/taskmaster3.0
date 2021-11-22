@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "test": "test",
-    "type":"module"
+    "type": "module"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/anamika0212/taskmaster3.0/issues"
   },
-  "homepage": "https://github.com/anamika0212/taskmaster3.0#readme"
+  "homepage": "https://github.com/anamika0212/taskmaster3.0#readme",
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "apollo": "^2.33.9",
+    "apollo-server-express": "^2.15.0",
+    "graphql": "^15.5.0"
+  }
 }

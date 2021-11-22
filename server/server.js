@@ -1,23 +1,33 @@
 const express = require('express');
-const dotenv = require('dotenv');
-const mongoose = require('mongoose');
-const cors = require('cors');
+const { ApolloServer } = require("apollo-server-express");
+const path = require('path');
+const { typeDefs, resolvers } = require("./schemas");
+const db = require('./config/connection');
+const { authMiddleware } = require('./utils/auth');
 const app = express();
-dotenv.config();
-app.use(express.json({ limit: "30mb", extended: true }));
-app.use(express.urlencoded({ limit: "30mb", extended: true }))
-app.use(cors());
-app.use(require('./routes/todos.js'));
-const mongodb = 'mongodb+srv://ckmobile:ckmobile123@cluster0.niuuw.mongodb.net/item-database?retryWrites=true&w=majority';
-app.get('/', (req, res) => {
-res.send('Welcome to server')
-})
 const PORT = process.env.PORT || 5000;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/taskmanager', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-  
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: authMiddleware,
 });
-app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
 
+server.applyMiddleware({ app });
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// if we're in production, serve client/build as static assets
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
+db.once('open', () => {
+  app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
+  console.log(`GraphQL server ready at http://localhost:${PORT}${server.graphqlPath}`);
+});

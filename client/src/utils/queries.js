@@ -8,6 +8,7 @@ export const GET_ME = gql`
       email
       taskCount
       tasks {
+        _id
         title
         content
       }

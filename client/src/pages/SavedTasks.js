@@ -55,8 +55,12 @@ const SavedTasks = () => {
                 <Card.Body>
                   <Card.Title>{task.title}</Card.Title>
                   <Card.Text>{task.content}</Card.Text>
-                  <Button className='btn-block btn-danger' onClick={() => handleDeleteTask(task._id)}>
+                  <Button className='btn-block btn-danger' onClick={() => {
+                    console.log(task)
+                    handleDeleteTask(task._id)}}>
+                    
                     Delete this Task!
+                    
                   </Button>
                 </Card.Body>
               </Card>

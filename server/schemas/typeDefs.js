@@ -13,6 +13,7 @@ const typeDefs = gql`
     user: User
   }
   type Task {
+    _id: ID
     title: String
     content: String
   }

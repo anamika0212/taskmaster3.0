@@ -5,6 +5,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { withRouter } from 'react-router';
 // import { makeStyles } from "@material-ui/core/styles";
 
 
@@ -87,17 +88,19 @@ const LoginForm = () => {
 
   return (
     <>
-    <div style={{backgroundcolor: "red",
-    width: 1000,
-    marginright: 2,
-    padding: 250}}>
+    <div style={{backgroundColor: 'cadetblue',
+    width: 800,
+    // border: '3px solid white',
+    margin: '0 auto',
+    marginTop: 200,
+    padding: 30}}>
 
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your login credentials!
         </Alert>
         <Form.Group style = {{backgroundColor:"#014F4B"}}>
-          <Form.Label style = {{color:"white", padding: 10}} htmlFor='email'>Email</Form.Label>
+          <Form.Label style = {{color:"white", padding: 5}} htmlFor='email'>Email</Form.Label>
           <Form.Control
             type='text'
             placeholder='Your email'
@@ -110,7 +113,7 @@ const LoginForm = () => {
         </Form.Group>
 
         <Form.Group style = {{backgroundColor:"#014F4B"}}>
-          <Form.Label style = {{color:"white", padding: 10}} htmlFor='password'>Password</Form.Label>
+          <Form.Label style = {{color:"white", padding: 5}} htmlFor='password'>Password</Form.Label>
           <Form.Control
             type='password'
             placeholder='Your password'

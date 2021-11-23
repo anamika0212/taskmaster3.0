@@ -11,6 +11,7 @@ import CreateTask from './pages/CreateTask';
 import LoginForm from './components/LoginForm';
 import SavedTasks from './pages/SavedTasks';
 import Navbar from './components/Navbar';
+import "./App.css";
 
 const httpLink = createHttpLink({
   uri: '/graphql',

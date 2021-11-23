@@ -5,6 +5,37 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+// import { makeStyles } from "@material-ui/core/styles";
+
+
+// const useStyles = makeStyles((theme) => ({
+//   "@global": {
+//     body: {
+//       backgroundColor: theme.palette.common.white
+//     }
+//   },
+//   paper: {
+//     marginTop: theme.spacing(8),
+//     display: "flex",
+//     flexDirection: "column",
+//     alignItems: "center"
+//   },
+//   avatar: {
+//     margin: theme.spacing(1),
+//     backgroundColor: theme.palette.secondary.main
+//   },
+//   form: {
+//     width: "100%", // Fix IE 11 issue.
+//     marginTop: theme.spacing(1)
+//   },
+//   submit: {
+//     margin: theme.spacing(3, 0, 2),
+//     backgroundColor:"#014F4B",
+//     '&:hover': {
+//       backgroundColor: "#068f88"
+//     }
+//   }
+// }));
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
@@ -52,14 +83,21 @@ const LoginForm = () => {
     });
   };
 
+  // const classes = useStyles();
+
   return (
     <>
+    <div style={{backgroundcolor: "red",
+    width: 1000,
+    marginright: 2,
+    padding: 250}}>
+
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your login credentials!
         </Alert>
-        <Form.Group>
-          <Form.Label htmlFor='email'>Email</Form.Label>
+        <Form.Group style = {{backgroundColor:"#014F4B"}}>
+          <Form.Label style = {{color:"white", padding: 10}} htmlFor='email'>Email</Form.Label>
           <Form.Control
             type='text'
             placeholder='Your email'
@@ -71,8 +109,8 @@ const LoginForm = () => {
           <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor='password'>Password</Form.Label>
+        <Form.Group style = {{backgroundColor:"#014F4B"}}>
+          <Form.Label style = {{color:"white", padding: 10}} htmlFor='password'>Password</Form.Label>
           <Form.Control
             type='password'
             placeholder='Your password'
@@ -90,6 +128,7 @@ const LoginForm = () => {
           Submit
         </Button>
       </Form>
+      </div>
     </>
   );
 };

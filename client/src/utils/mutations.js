@@ -51,6 +51,7 @@ export const Create_TASK = gql`
       username
       email
       tasks {
+        _id
         title
         content
       }
@@ -65,6 +66,7 @@ export const REMOVE_TASK = gql`
       username
       email
       tasks {
+        _id
         title
         content
       }

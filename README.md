@@ -78,7 +78,7 @@ npm install
 
 ## Questions
 
-For any questions regarding this application please reach out to: email@example.com
+For any questions regarding this application please reach out to: anamika@gmail.com
 
 ## Bugs
 

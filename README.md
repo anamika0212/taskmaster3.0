@@ -8,7 +8,7 @@ It is the ideal feature to keep the user up to date with small or big projects t
 
 ## Deployed Link
 
-[Task Master 3.0]()
+[Task Master 3.0](https://taskmaster3dot0.herokuapp.com/)
 
 ## Table of Contents
 
